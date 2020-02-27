@@ -12,13 +12,12 @@ function Airplane(name) {
   this.name = name;
   this.isFlying = false;
 }
-Airplane.prototype.takeOff = function () {
+Airplane.prototype.takeOff = function() {
   this.isFlying = true;
 };
-Airplane.prototype.land = function () {
+Airplane.prototype.land = function() {
   this.isFlying = false;
 };
-
 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -45,20 +44,18 @@ function Person(name, age) {
   this.stomach = [];
 }
 
-Person.prototype.eat = function (food){
-  if(this.stomach.length >= 10) return;
+Person.prototype.eat = function(food) {
+  if (this.stomach.length >= 10) return;
   else this.stomach.push(food);
-}
+};
 
-Person.prototype.poop = function (){
+Person.prototype.poop = function() {
   this.stomach = [];
-}
+};
 
-Person.prototype.toString = function (){
+Person.prototype.toString = function() {
   return `${this.name}, ${this.age}`;
-}
-
-
+};
 
 /*
   TASK 2
@@ -83,23 +80,20 @@ function Car(model, milesPerGallon) {
 
 Car.prototype.fill = function(gallons) {
   this.tank += gallons;
-}
+};
 
 Car.prototype.drive = function(distance) {
-  console.log(this, distance);
-  for(let i = 0, x = 0; i < distance; i++){
-    if(i % this.milesPerGallon === 0) {
+  for (let i = 0; i < distance; i++) {
+    if (i > 0 && i % this.milesPerGallon === 0) {
       this.tank--;
-      x++;
-      console.log(i, x);
     }
-    if(this.tank === 0) {
-      // Out of Fuel
+    if (this.tank === 0) {
       return `I ran out of fuel at ${this.odometer} miles!`;
     }
     this.odometer++;
   }
-}
+  this.tank--;
+};
 
 /*
   TASK 3
@@ -116,7 +110,7 @@ function Baby(name, age, favoriteToy) {
 Baby.prototype = Object.create(Person.prototype);
 Baby.prototype.play = function() {
   return `Playing with ${this.favoriteToy}`;
-}
+};
 
 /* 
   TASK 4
@@ -128,14 +122,21 @@ Baby.prototype.play = function() {
   4. Explicit Binding - Whenever .call() or .apply() is used.
 */
 
-
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
-if (typeof exports !== 'undefined') {
-  module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Baby) { module.exports.Baby = Baby }
+if (typeof exports !== "undefined") {
+  module.exports = module.exports || {};
+  if (Airplane) {
+    module.exports.Airplane = Airplane;
+  }
+  if (Person) {
+    module.exports.Person = Person;
+  }
+  if (Car) {
+    module.exports.Car = Car;
+  }
+  if (Baby) {
+    module.exports.Baby = Baby;
+  }
 }
